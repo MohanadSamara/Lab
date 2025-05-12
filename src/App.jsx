@@ -1,29 +1,24 @@
-import Header from "./Header"
-import Footer from "./Footer";
-import Food from "./Food";
-import Card from "./Card";
-import Button from "./Button/Button";
-import Student from "./Student";
-import UserGreeting from "./UserGreeting";
-import List from "./List/List";
-//import './App.css';
-import Counter from "./Counter";
-import MyComponent from "./MyComponent";
-import ColorPicker from "./Color Picker/ColorPicker";
-import UpdateObjects from "./update OBJECTS in state";
-import UpdateArrays from "./update ARRAYS in state";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Movies from './pages/Movies';
+import MovieDetails from './pages/MovieDetails';
+
 function App() {
-
-  
-  return(
-    <>
-  <UpdateArrays/>
-  
-
-    
-    </>
-
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <main style={{ minHeight: '80vh' }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/movies/:id" element={<MovieDetails />} />
+        </Routes>
+      </main>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
-export default App
+export default App;
