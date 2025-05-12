@@ -1,0 +1,195 @@
+/* List.module.css */
+.listContainer {
+    margin: 3rem auto;
+    max-width: 1000px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    background: rgba(26, 10, 42, 0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 
+      0 0 30px rgba(106, 13, 173, 0.2),
+      inset 0 0 20px rgba(0, 168, 232, 0.1);
+  }
+  
+  .listContainer::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+      radial-gradient(circle at 30% 30%, 
+        rgba(106, 13, 173, 0.05) 0%, 
+        transparent 15%),
+      radial-gradient(circle at 70% 70%, 
+        rgba(0, 168, 232, 0.05) 0%, 
+        transparent 15%);
+    animation: float 20s infinite linear;
+  }
+  
+  @keyframes float {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-5%, 5%) rotate(5deg); }
+    50% { transform: translate(5%, -3%) rotate(-3deg); }
+    75% { transform: translate(-3%, 4%) rotate(2deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
+  
+  .categoryHeading {
+    color: var(--aizen-light);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+    text-shadow: 
+      0 0 15px var(--aizen-accent),
+      0 0 5px rgba(255, 255, 255, 0.2);
+  }
+  
+  .categoryHeading::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--aizen-blue),
+      var(--aizen-purple),
+      transparent
+    );
+    filter: drop-shadow(0 0 5px var(--aizen-accent));
+  }
+  
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    position: relative;
+    z-index: 1;
+  }
+  
+  .listItem {
+    background: rgba(16, 5, 29, 0.7);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+  }
+  
+  .listItem::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      rgba(106, 13, 173, 0.1) 0%,
+      rgba(0, 168, 232, 0.1) 100%
+    );
+    z-index: -1;
+  }
+  
+  .listItem:hover {
+    transform: 
+      translateY(-5px)
+      rotateX(5deg)
+      rotateY(-2deg);
+    box-shadow:
+      0 0 25px rgba(106, 13, 173, 0.4),
+      0 0 40px rgba(0, 168, 232, 0.2);
+    border-color: var(--aizen-purple);
+  }
+  
+  .listItem::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(
+      circle at center,
+      rgba(0, 168, 232, 0.15) 0%,
+      transparent 70%
+    );
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .listItem:hover::after {
+    opacity: 1;
+  }
+  
+  .listItemContent {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .fruitName {
+    color: var(--aizen-light);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    text-shadow: 0 0 8px rgba(106, 13, 173, 0.5);
+  }
+  
+  .caloriesBadge {
+    background: rgba(0, 168, 232, 0.15);
+    color: var(--aizen-blue);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: inline-block;
+    border: 1px solid var(--aizen-blue);
+    backdrop-filter: blur(5px);
+  }
+  
+  /* Dynamic color variations */
+  .listItem:nth-child(odd) .caloriesBadge {
+    background: rgba(106, 13, 173, 0.15);
+    color: var(--aizen-purple);
+    border-color: var(--aizen-purple);
+  }
+  
+  .listItem:nth-child(even):hover {
+    border-color: var(--aizen-blue);
+  }
+  
+  /* Particle effect */
+  .listItemParticle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--aizen-accent);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  @keyframes particle {
+    0% {
+      transform: translate(0, 0);
+      opacity: 0.6;
+    }
+    100% {
+      transform: translate(var(--x, 0), var(--y, 0));
+      opacity: 0;
+    }
+  }

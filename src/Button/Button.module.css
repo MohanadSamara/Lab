@@ -1,0 +1,17 @@
+.button {
+    background: linear-gradient(135deg, var(--aizen-purple), var(--aizen-blue));
+    color: var(--aizen-light);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(106, 13, 173, 0.4);
+  }
+  
+  .button:hover {
+    background: linear-gradient(135deg, var(--aizen-blue), var(--aizen-purple));
+    box-shadow: 0 0 20px rgba(0, 168, 232, 0.6);
+    transform: scale(1.05);
+  }
