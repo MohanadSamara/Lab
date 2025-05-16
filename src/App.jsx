@@ -4,20 +4,11 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Movies from './pages/Movies';
 import MovieDetails from './pages/MovieDetails';
+import UpdateArrayOfObjects from './update ARRAY of OBJECTS in state';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <main style={{ minHeight: '80vh' }}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:id" element={<MovieDetails />} />
-        </Routes>
-      </main>
-      <Footer />
-    </BrowserRouter>
+    <UpdateArrayOfObjects/>
   );
 }
 
